@@ -12,14 +12,15 @@
             <div>
                 <p>{!! nl2br(e($micropost->content)) !!}</p>
             </div>
+            <div class="btn-toolbar">
             <div>
                 @if (Auth::user()->is_favoriting($micropost->id))
                     {!! Form::open(['route' => ['user.unfavorite', $micropost->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('Unfavorite', ['class' => "btn  btn-xs"]) !!}
+                        {!! Form::submit('Unfavorite', ['class' => "btn btn-xs"]) !!}
                     {!! Form::close() !!}
                 @else
                     {!! Form::open(['route' => ['user.favorite', $micropost->id]]) !!}
-                        {!! Form::submit('Favorite', ['class' => "btn  btn-xs"]) !!}
+                        {!! Form::submit('Favorite', ['class' => "btn btn-warning  btn-xs"]) !!}
                     {!! Form::close() !!}
                 @endif
             </div>
@@ -29,6 +30,7 @@
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
                 @endif
+            </div>
             </div>
         </div>
     </li>

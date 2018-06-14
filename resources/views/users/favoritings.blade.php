@@ -11,7 +11,7 @@
                 {!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!} <span class="text-muted">posted at {{ $micropost->created_at }}</span>
             </div>
             <div>
-                <p>{!! nl2br(e($micropost->content)) !!}</p>
+                <p>{!! nl2br($micropost->content) !!}</p>
             </div>
             <div>
                 @if (Auth::user()->id == $micropost->user_id)
